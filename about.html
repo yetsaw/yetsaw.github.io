@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta property="og:title" content="关于 · YETSAW">
+  <meta property="og:description" content="关于 YETSAW 数字花园">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yetsaw.github.io/about.html">
+
+  <title>关于 · YETSAW</title>
+  <meta name="description" content="关于 YETSAW 数字花园的主人、分区说明与建站方式。">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-page="about">
+
+  <header class="signboard">
+    <a class="brand" href="index.html">
+      <span class="brand-cn">YETSAW</span>
+      <span class="brand-en">数字花园 · DIGITAL GARDEN</span>
+    </a>
+    <nav class="topnav" id="topnav">
+      <a href="index.html#directory" class="navlink">目录</a>
+      <a href="index.html#kanban" class="navlink">看板</a>
+      <a href="about.html" class="navlink">关于</a>
+      <button id="themeToggle" class="navlink theme-toggle" aria-label="切换昼夜模式" title="切换昼夜模式">◐</button>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="菜单">≡</button>
+  </header>
+
+  <section class="hero-sign hero-sign--sub">
+    <h1 class="hero-word hero-word--sub">关于本站</h1>
+    <p class="hero-line">ABOUT · 站务信息</p>
+    <div class="hero-stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+  </section>
+
+  <main class="about-wrap">
+
+    <section class="about-block">
+      <h2 class="deck-title">站名</h2>
+      <p><strong>YETSAW</strong> — <em>Yet eternally lasts the spirit and will.</em></p>
+      <p>「精神」长存，「意志」不朽。本站是站长的数字花园：笔记、创作、项目文档与其他数字资产的存放地，持续生长，持续迁移。</p>
+    </section>
+
+    <section class="about-block">
+      <h2 class="deck-title">分区说明</h2>
+      <table class="about-table">
+        <tbody>
+          <tr><th class="mono">日札</th><td>每日随记、生活切片、瞬时想法的登记处。</td></tr>
+          <tr><th class="mono">匝章</th><td>较成段的散文与杂文，围绕一个主题缠绕成篇。</td></tr>
+          <tr><th class="mono">研文</th><td>学习与研究性质的较长文章，资料、推演与结论。</td></tr>
+          <tr><th class="mono">诗遇 · 临仙集</th><td>诗词创作集之一，「临仙」一辑。</td></tr>
+          <tr><th class="mono">诗遇 · 瓷山集</th><td>诗词创作集之二，「瓷山」一辑。</td></tr>
+          <tr><th class="mono">模拟文化</th><td>虚构世界观合集：
+            谟意民主共和国、奎塔维亚新世界、源点新世纪、集成海风集团。</td></tr>
+          <tr><th class="mono">游戏</th><td>游戏设计与档案：
+            通盘皓素 Totally White、罔极沉冥 Totally Dark、锦中周报 JZSH Weekly、反应手册 Reaction Brochure。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="about-block">
+      <h2 class="deck-title">技术 · 运作方式</h2>
+      <ul class="about-list">
+        <li>全站为纯静态站点，托管于 <strong>GitHub Pages</strong>，无服务器、无数据库、无构建步骤，任何静态文件原样即可访问。</li>
+        <li>目录条目由前端脚本自动读取：依次尝试 GitHub Contents API → 各文件夹下的 <code>manifest.json</code> → 内置占位数据。<strong>向对应文件夹提交新文件后，刷新页面即自动出现</strong>（受 API 速率限制，约 60 次/小时，页面做了缓存）。</li>
+        <li>昼夜模式按访问者<strong>本地时区</strong>自动切换（约 06:00–18:00 为日间），亦可点右上角 ◐ 手动覆盖。</li>
+        <li>新闻看板的高考倒计时、新年倒计时与最近提交时间均为实时计算。</li>
+      </ul>
+    </section>
+
+    <section class="about-block">
+      <h2 class="deck-title">联系</h2>
+      <p>站内留言或 GitHub：<a class="textlink" href="https://github.com/yetsaw" rel="noopener">github.com/yetsaw</a>。</p>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <span class="mono">© YETSAW · yetsaw.github.io</span>
+    <span class="mono" id="footTheme"></span>
+  </footer>
+
+</body>
+</html>
