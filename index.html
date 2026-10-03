@@ -1,29 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-  <!-- 微信 OGP 卡片配置 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- 微信 / OGP 卡片配置 -->
   <meta property="og:title" content="YETSAW">
   <meta property="og:description" content="Yet eternally lasts the spirit and will">
   <meta property="og:image" content="https://yetsaw.github.io/cover.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yetsaw.github.io/">
-  
-  <title>YETSAW</title>
-  <style>
-        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px; line-height: 1.8; }
-        h1 { color: #333; }
-        p { color: #666; }
-  </style>
+
+  <title>YETSAW · 数字花园</title>
+  <meta name="description" content="YETSAW 数字花园 — 日札 / 匝章 / 研文 / 诗遇 / 模拟文化 / 游戏">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script src="assets/app.js" defer></script>
 </head>
-<body>
-  <h1>YETSAW</h1>
-  <p><em>Yet eternally lasts the spirit and will.</em></p>
-  <p>数字花园 | 笔记 | 创作 | 档案</p>
-  <hr>
-  <p>这里存放我的笔记、创作、项目文档与其他数字资产。</p>
-  <p>当前建设中，内容陆续迁移中...</p>
+<body data-page="home">
+
+  <!-- ===== 顶部长条站牌 ===== -->
+  <header class="signboard">
+    <a class="brand" href="index.html">
+      <span class="brand-cn">YETSAW</span>
+      <span class="brand-en">数字花园 · DIGITAL GARDEN</span>
+    </a>
+    <nav class="topnav" id="topnav">
+      <a href="#directory" class="navlink">目录</a>
+      <a href="#kanban" class="navlink">看板</a>
+      <a href="about.html" class="navlink">关于</a>
+      <button id="themeToggle" class="navlink theme-toggle" aria-label="切换昼夜模式" title="切换昼夜模式">◐</button>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="菜单">≡</button>
+  </header>
+
+  <!-- ===== 主站牌 ===== -->
+  <section class="hero-sign">
+    <h1 class="hero-word">YETSAW</h1>
+    <p class="hero-line">Yet eternally lasts the spirit and will.</p>
+    <div class="hero-stripes" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </div>
+    <div class="hero-meta">
+      <span id="clock" class="mono">--:--:--</span>
+      <span id="daynight" class="mono">--</span>
+      <span class="mono" id="loadMode">加载中…</span>
+    </div>
+  </section>
+
+  <!-- ===== 搜索 ===== -->
+  <section class="search-deck" role="search">
+    <label class="search-label mono" for="searchBox">SEARCH · 全文检索</label>
+    <input id="searchBox" type="search" placeholder="输入关键词，检索全站条目…" autocomplete="off">
+    <span class="search-count mono" id="searchCount"></span>
+  </section>
+
+  <!-- ===== 新闻看板 ===== -->
+  <section id="kanban" class="kanban">
+    <div class="kanban-head">
+      <h2 class="deck-title">NEWS · 新闻看板</h2>
+      <span class="mono deck-sub">KANBAN / LIVE</span>
+    </div>
+    <div class="kanban-grid">
+      <article class="kanban-cell">
+        <h3 class="kanban-label">高考倒计时</h3>
+        <p class="kanban-num mono" id="countdownGaokao">--</p>
+        <p class="kanban-sub mono" id="gaokaoDate"></p>
+      </article>
+      <article class="kanban-cell">
+        <h3 class="kanban-label">新年倒计时</h3>
+        <p class="kanban-num mono" id="countdownNewyear">--</p>
+        <p class="kanban-sub mono" id="newyearDate"></p>
+      </article>
+      <article class="kanban-cell">
+        <h3 class="kanban-label">网页更新</h3>
+        <p class="kanban-num kanban-num--sm mono" id="lastUpdate">--</p>
+        <p class="kanban-sub mono">最近提交 · LAST COMMIT</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== 全站目录 ===== -->
+  <main id="directory" class="directory">
+    <div class="kanban-head">
+      <h2 class="deck-title">DIRECTORY · 全站目录</h2>
+      <span class="mono deck-sub" id="entryTotal"></span>
+    </div>
+    <div id="sectionsRoot"><!-- JS 渲染 --></div>
+  </main>
+
+  <!-- ===== 阅读面板（点击条目后展开） ===== -->
+  <div class="reader" id="reader" hidden>
+    <div class="reader-bar">
+      <span class="mono reader-path" id="readerPath"></span>
+      <button class="reader-close" id="readerClose" aria-label="关闭">✕</button>
+    </div>
+    <article class="reader-body" id="readerBody"></article>
+  </div>
+
+  <footer class="site-foot">
+    <span class="mono">© YETSAW · yetsaw.github.io</span>
+    <span class="mono" id="footTheme"></span>
+  </footer>
+
 </body>
 </html>
